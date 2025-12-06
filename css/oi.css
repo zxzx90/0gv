@@ -1,0 +1,112 @@
+/* GERAIS E BOX-SIZING */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ESTILOS DO BODY E BACKGROUND */
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+      backdrop-filter: blur(2px);
+    /* CONFIGURAÇÃO DO BACKGROUND DE IMAGEM */
+    background-image: url('../img/praia.jpg'); /* AJUSTE O CAMINHO DA SUA IMAGEM */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    overflow-x: hidden; /* Correção de rolagem lateral */
+}
+
+/* HEADER E ÍCONE HOME */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: absolute; /* Para ficar no topo */
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.page-title {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.header-icon {
+    font-size: 2em;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-icon:hover {
+    color: #ccc;
+}
+
+/* CONTEÚDO PRINCIPAL (TEXTO E BOTÃO) */
+.main-content-nature {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.content-box {
+     margin-top: 160px;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+
+.main-text {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.highlight-text {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* BOTÃO CHAMATIVO (CTA) */
+.cta-button {
+    display: inline-block;
+    background-color: #4a4a4a; /* Cor de fundo escura (como você usou no strawberry.html) */
+    border: 2px solid #138a33; /* Borda chamativa (usei a cor roxa do seu hover anterior) */
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s;
+    box-shadow: 0 4px 15px rgba(18, 131, 12, 0.5); /* Sombra roxa sutil */
+}
+
+.cta-button:hover {
+    background-color: #7a1be0; /* Fica roxo no hover */
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8em;
+}

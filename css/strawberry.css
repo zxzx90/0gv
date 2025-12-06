@@ -1,0 +1,975 @@
+/* No topo do seu arquivo CSS */
+
+@import url('fonts.googleapis.com');
+
+/* Importação de fontes externas, se necessário */
+
+@import url("https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css");
+
+
+@font-face {
+
+ font-family: 'popin';
+ src: url('Poppins-Thin.ttf') format(truetype), ;
+ font-style: normal;
+
+}
+
+@font-face {
+
+ font-family:'popi';
+ src:url(Poppins-ExtraBold) format(truetype)
+
+ }
+
+/* ---------------------------------------------------------------------- */
+
+/* ESTILOS GERAIS DO BODY E BACKGROUND */
+
+/* ---------------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  margin: 0;
+  padding: 0;
+  font-family: 'popin', sans-serif;
+  background-image: url(../img/backgroundd.jpg );
+  background-size: cover;
+  background-position: center; 
+  background-attachment: fixed; 
+  background-color: #6a9955; 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  color: #fff;
+  width: 100%;
+  overflow-x: hidden; /* **MANTÉM O BODY SEM ROLAGEM HORIZONTAL** */
+    overflow-y: auto; 
+}
+
+/* ---------------------------------------------------------------------- */
+
+/* ESTILOS DO HEADER PRINCIPAL */
+
+/* ---------------------------------------------------------------------- */
+
+header {
+  width: 100%;
+  position: relative;
+  z-index: 1001;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+
+}
+
+.header-container h1 {
+ font-family: 'popi';
+
+}
+
+.site-title {
+ font-family:'popin';
+  display: flex;
+  color: #ffffff;
+  margin-left: 10px;
+  margin-top: 1px;
+  align-items: auto;
+ 
+}
+
+/* ---------------------------------------------------------------------- */
+/* REMOVIDO: card-item h2 carrosel (Referente aos 3 cards antigos) */
+/* ---------------------------------------------------------------------- */
+
+.text-content {
+  padding: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  font-family: 'popin' , sans-serif;
+
+}
+
+/* ---------------------------------------------------------------------- */
+
+/* ESTILOS DO CONTEÚDO PRINCIPAL DO HEADER (Ícone + ZOE) */
+
+/* ---------------------------------------------------------------------- */
+
+.header-main-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0%;
+
+}
+
+.header-link-title {
+ /* font-family: ;*/
+  margin-right: 30px;
+  background-color: transparent;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5em;
+  margin: 0;
+
+}
+/* ---------------------------------------------------------------------- */
+
+/* ESTILOS DO ÍCONE DE 3 PONTINHOS (ELLIPSIS) */
+
+/* ---------------------------------------------------------------------- */
+
+.menu-icon {
+  font-size: 2em; 
+  color: #fff;
+  cursor: pointer;
+  z-index: 1002;
+  transition: color 0.3s ease;
+
+}
+
+
+
+.menu-icon:hover {
+
+  color: #ccc;
+
+}
+
+
+/* ---------------------------------------------------------------------- */
+
+/* ESTILOS DO MENU DE NAVEGAÇÃO (DESLIZANDO DA ESQUERDA) */
+
+/* ---------------------------------------------------------------------- */
+
+/* (Mantido o código do menu deslizante) */
+
+.main-nav {
+
+  position: fixed;
+
+  top: 0;
+  left: -100%; 
+  width: 100%; 
+  height: 100vh; 
+  transition: left 0.5s ease-in-out;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  padding-top: 70px; 
+  overflow-y: auto; 
+
+}
+
+
+
+.main-nav.active {
+
+  left: 0;
+
+}
+
+
+
+.main-nav .nav-list {
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.main-nav .nav-list li {
+
+  text-align: center;
+
+  border-bottom: 1px solid #333;
+
+}
+
+
+
+.main-nav .nav-list li:last-child {
+
+  border-bottom: none;
+
+}
+
+
+
+.main-nav .nav-list li a {
+
+  color: #fff;
+
+  text-decoration: none;
+
+  padding: 15px 0;
+
+  display: block;
+
+}
+
+
+
+/* ---------------------------------------------------------------------- */
+
+/* ESTILOS PARA O OVERLAY */
+
+/* ---------------------------------------------------------------------- */
+
+.overlay {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100vw;
+
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  z-index: 998;
+
+  display: none;
+
+  transition: opacity 0.3s ease-in-out;
+
+  opacity: 0;
+
+}
+
+
+
+.overlay.active {
+
+  display: block;
+
+  opacity: 1;
+
+}
+
+
+
+/* ---------------------------------------------------------------------- */
+
+/* ESTILOS DO CARD PRINCIPAL (CARROSSEL) */
+
+/* ---------------------------------------------------------------------- */
+
+.main-content {
+  flex-grow: 1;
+    /* REMOVIDO: justify-content: center e align-items: center */
+    /* Deixamos o wrapper do carrossel controlar o alinhamento central */
+  display: flex; 
+  flex-direction: column;
+  padding: 20px 0; /* Ajuste o padding vertical. O wrapper controla o horizontal */
+    width: 100%; 
+}
+
+/* **NOVO: Wrapper para Habilitar a Rolagem Horizontal** */
+.main-carousel-wrapper {
+    display: flex; /* **ESSENCIAL: Coloca os cards LADO A LADO** */
+    overflow-x: scroll; /* ATIVA A ROLAGEM HORIZONTAL */
+    padding: 0 40px; /* Espaçamento lateral para ver o próximo card */
+    scroll-snap-type: x mandatory; /* Efeito de encaixe (Snap) no card ao soltar */
+    gap: 5px; /* Espaço entre os cards */
+    
+    /* Remove barra de rolagem visualmente */
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.main-carousel-wrapper::-webkit-scrollbar {
+    display: none; 
+}
+
+
+.card-container {  
+  background-color:transparent;
+  border-radius: 15px;
+  /* box-shadow: REMOVIDO */
+  max-width: 90px;
+  width: 95%; /* Mantenha a largura para calcular o tamanho mínimo no carrossel */
+  
+    /* **NOVOS ESTILOS PARA O CARROSSEL** */
+    min-width: 85%; /* Faz o card ocupar 85% da largura, mostrando um pedaço do próximo */
+    scroll-snap-align: center; /* Garante que o card "grude" no centro ao rolar */
+    
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
+  box-sizing: border-box;
+
+}
+
+/* O card-content precisa ser flexível para organizar a imagem e o texto */
+.card-content {
+  display: flex;
+  flex-direction: column; /* Manter a direção padrão em coluna no mobile */
+  flex-wrap: nowrap; /* Impede a quebra de linha que faria o card voltar a ser vertical */
+  gap: 5px;
+}
+
+
+
+.image-placeholder {
+
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent; /* Alterado para transparente */
+  border-radius: 16px;
+  overflow: hidden;
+ 
+  border: 1px solid white;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+  
+}
+
+/* Ajuste na imagem para manter a proporção no card */
+.image-placeholder img {
+
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+
+
+.text-content {
+  padding: 0;
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.text-content h1 {
+  text-decoration: none !important;
+  font-size: 3em;
+  margin-bottom: 5px;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+.buttons {
+  display: flex;
+  gap: 1px;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza o botão */
+  padding-bottom: 20px;
+}
+
+.btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn.connect-btn {
+  background-color: #4a4a4a;
+  border-color: black;
+  font-weight: bold;
+}
+
+.btn.connect-btn:hover {
+  background-color: #7a1be0;
+  transition: 0.5s;
+
+}
+
+
+
+/* ---------------------------------------------------------------------- */
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+/* ---------------------------------------------------------------------- */
+
+
+@media (max-width: 768px) {
+
+ html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+  }
+
+
+  .nav__actions{
+   color: rgb(255, 255, 255);
+  }
+
+  .main-carousel-wrapper {
+        padding: 1  2px; /* Reduz o padding para mobile */
+    }
+
+  .card-container {
+        /* Aqui min-width 90% faz o card ser quase tela cheia no mobile */
+    min-width: 90%; 
+    padding: 5px;
+    max-width: none;
+  }
+  
+  .main-content {
+    height: auto; 
+    padding: 0; /* Remove padding desnecessário se o wrapper já tem */
+  }
+  
+  .card-content {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  
+  /* OUTRAS REGRAS EXISTENTES (mantidas) */
+  .text-content h1 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 2.5em;
+  }
+
+.image-placeholder {
+/* Remove a largura e altura fixas incorretas */
+  width: auto;
+  height: auto;       
+ /* Define uma altura máxima razoável para a imagem */
+  max-height: 700px;       
+ /* Garantir que ela ainda possa crescer até o limite do container */
+  flex: 4; 
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 8px 15px;
+    font-size: 0.85em;
+  }
+.main-content {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    padding: 0px;
+  }
+  .text-content h1 {
+
+    font-size: 2em;
+  }
+
+
+
+}
+
+@media (min-width: 900px) {
+  .buttons{
+    padding: 32px;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* MEDIA QUERIES PARA O MENU DE NAVEGAÇÃO */
+/* ---------------------------------------------------------------------- */
+
+
+/*=============== BASE ===============*/
+
+* {
+
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0;
+}
+
+
+
+html {
+ scroll-behavior: smooth;
+}
+
+
+body {
+ font-family: var(--body-font);
+ font-size: var(--normal-font-size);
+ background-color: var(--body-color);
+
+}
+
+ul {
+ list-style: none;
+}
+
+a {
+ text-decoration: none;
+}
+
+img {
+ display: block;
+ max-width: 100%;
+ height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+
+.container {
+ max-width: 1120px;
+ margin-inline: 1.5rem;
+}
+
+/*=============== HEADER & NAV ===============*/
+
+/* (Estilos de navegação, mantidos) */
+
+.header {
+ position: fixed;
+ width: 100%;
+ top: 0;
+ left: 0;
+ background-color: var(--dark-color);
+ z-index: var(--z-fixed);
+}
+
+
+
+.nav {
+ position: relative;
+ height: var(--header-height);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ color: var(--white-color);
+}
+
+.nav__logo {
+ color: var(--white-color);
+ font-weight: var(--font-semi-bold);
+ transition: color .4s;
+}
+
+.nav__logo:hover {
+ color: var(--first-color);
+}
+
+.nav__toggle,
+
+.nav__close {
+ display: flex;
+ font-size: 1.5rem;
+ cursor: pointer;
+}
+/* Navigation for mobile devices */
+
+@media screen and (max-width: 1150px) {
+
+ .nav__menu {
+  position: fixed;
+  top: -120%;
+  left: 0;
+  background-color: var(--dark-color);
+  width: 100%;
+  padding-block: 4rem;
+  z-index: var(--z-fixed);
+  transition: top .4s;
+
+ }
+
+}
+
+
+
+.nav__list {
+ text-align: center;
+ display: flex;
+ flex-direction: column;
+ row-gap: 2.5rem;
+
+}
+
+
+
+.nav__link {
+ color: var(--white-color);
+ font-weight: var(--font-semi-bold);
+ transition: color .4s;
+
+}
+
+
+
+.nav__link:hover {
+
+ color: var(--first-color);
+
+}
+
+
+
+.nav__close {
+
+ position: absolute;
+ top: 1rem;
+ right: 1.5rem;
+}
+
+.nav__actions {
+ display: flex;
+ align-items: center;
+ column-gap: .75rem;
+}
+
+
+/* Show menu */
+
+.show-menu {
+
+ top: 0;
+
+}
+
+
+
+/*=============== DROPDOWN REMOVIDO===============*/
+
+
+/*=============== BREAKPOINTS ===============*/
+
+/* For small devices */
+
+@media screen and (max-width: 320px) {
+
+ header {
+  width: 100%;
+ }
+ .container {
+
+  margin-inline: 1rem;
+ }
+}
+
+
+/* For large devices */
+
+@media screen and (min-width: 1150px) {
+ .container {
+  margin-inline: auto;
+ }
+
+
+
+ .nav {
+  height: calc(var(--header-height) + 2rem);
+  column-gap: 4rem;
+ }
+ .nav__toggle,
+
+ .nav__close {
+  display: none;
+ }
+
+ .nav__list {
+  flex-direction: row;
+  column-gap: 3rem;
+
+ }
+
+ .nav__menu {
+  margin-left: auto;
+ }
+ 
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* REMOVIDO: Estilos de .card-section (Referente aos 3 cards antigos) */
+/* ---------------------------------------------------------------------- */
+
+
+footer {
+ text-align: center;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ESTILOS DA NAVEGAÇÃO SUPERIOR (choose your adventure + PÍLULAS) */
+/* ---------------------------------------------------------------------- */
+
+.top-navigation {
+    margin-top:90px;
+    padding: 20px;
+    padding-bottom: 0; /* O espaçamento entre a pílula e o card será definido pelo main-carousel-wrapper */
+    width: 100%;
+}
+
+.adventure-title {
+    font-family: 'popi', sans-serif;
+    font-size: 2.5em; /* Tamanho grande para mobile */
+    line-height: 1.1;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.adventure-title span {
+    font-weight: 400; /* Deixa 'your adventure' menos negrito, como na ref */
+}
+
+.pill-menu-wrapper {
+    display: flex;
+    overflow-x: scroll; /* Permite rolar as pílulas se houver muitas */
+    gap: 30px;
+    padding-bottom: 15px;
+    
+    /* Remover a barra de rolagem visualmente */
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.pill-menu-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.pill-btn {
+    display: block;
+    white-space: nowrap; /* Impede quebras de linha */
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.pill-btn:hover,
+.pill-btn.active {
+    background-color: #fff; /* Fica branco/sólido quando ativo/hover */
+    color: #000;
+    border-color: #fff;
+}
+
+
+/*botao lupin -------------------*/
+/* From Uiverse.io by neerajbaniwal */ 
+.btn-shine {
+ /* REMOVIDO: position: absolute; */
+ /* REMOVIDO: top: 90%; */
+ /* REMOVIDO: left: 50%; */
+ /* REMOVIDO: transform: translate(-50%, -50%); */
+ 
+ /* Estilos mantidos */
+ padding: 12px 48px;
+ color: #fff;
+ background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+ background-position: 0;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: shine 3s infinite linear;
+ animation-fill-mode: forwards;
+ -webkit-text-size-adjust: none;
+ font-weight: 600;
+ font-size: 24px;
+ text-decoration: none;
+ white-space: nowrap;
+ font-family: "Poppins", sans-serif;
+
+}
+@-moz-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@-webkit-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@-o-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ESTILOS DO ÍCONE SPOTIFY E WRAPPER DO BOTÃO */
+/* ---------------------------------------------------------------------- */
+
+.spotify-button-wrapper {
+    display: flex; /* Coloca o ícone e o botão lado a lado */
+    align-items: center; /* Centraliza verticalmente o ícone e o botão */
+    justify-content: center; /* Centraliza o wrapper dentro de .buttons */
+    gap: 5px; /* Espaço entre o ícone e o botão */
+    width: fit-content; /* Faz o container envolver apenas o conteúdo (ícone + botão) */
+    margin: 0 auto; /* Centraliza o wrapper na tela */
+}
+
+.spotify-icon-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.spotify-icon-list .icon-content {
+    /* Define o tamanho do ícone */
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #1DB954; /* Cor verde do Spotify */
+    background: transparent;
+}
+
+.spotify-icon-list .icon-content svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 15px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+/* Base glassmorphism anchor */
+.icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.06)
+  );
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  transition: all 0.35s ease-in-out;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.45),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+    0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* Spotify glass border */
+.icon-content[data-social="spotify"] a {
+  border: 1px solid rgba(29, 185, 84, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(29, 185, 84, 0.4),
+    0 0 10px rgba(29, 185, 84, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}

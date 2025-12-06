@@ -1,0 +1,345 @@
+/* ---------------------------------------------------------------------- */
+/* 1. CONFIGURAÇÃO BASE (MOBILE-FIRST) */
+/* ---------------------------------------------------------------------- */
+:root {
+    --primary-color: #f0f0f0;
+    --background-dark: #1e1e1e;
+    --accent-color: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.08);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url(../img/ZZZZ.jpg );
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Adicione aqui um background se quiser replicar a imagem de fundo da referência */
+    /* background-image: url(../img/backgroundd.jpg); */
+    /* background-size: cover; */
+}
+
+
+
+
+.container {
+    background-color: transparent;
+    width: 100%;
+    overflow-x: hidden; /* Evita que o conteúdo quebra a largura */
+}
+
+/* ---------------------------------------------------------------------- */
+/* 2. HEADER E TÍTULO PRINCIPAL (COISINHAS BOBAS) */
+/* ---------------------------------------------------------------------- */
+.page-header {
+    background-color:transparent; /* Pode ser removido se usar imagem de fundo */
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    color: var(--accent-color);
+    margin: 0;
+}
+
+.subtitle {
+    margin-top: 5px;
+    color: #a0a0a0;
+    font-size: 0.9em;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* 3. NAVEGAÇÃO */
+/* ---------------------------------------------------------------------- */
+.main-nav {
+    padding: 20px;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------------------------------------------------------------------- */
+/* 4. SEPARADOR */
+/* ---------------------------------------------------------------------- */
+.section-separator {
+    padding: 20px;
+    text-align: center;
+}
+
+.separator-line {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 auto 15px;
+    width: 80%;
+}
+
+.section-separator h2 {
+    font-size: 1.1em;
+    color: var(--accent-color);
+    margin: 0;
+    font-weight: normal;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* 5. CARROSSEL DE CARDS HORIZONTAL (GRID) */
+/* ---------------------------------------------------------------------- */
+.grid-carousel {
+    display: flex;
+    /* Faz o conteúdo horizontal ser rolado */
+    overflow-x: scroll; 
+    /* Esconde a barra de rolagem (opcional, dependendo do navegador) */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    
+    padding: 20px;
+    gap: 15px; /* Espaçamento entre os cards */
+    /* Necessário para que os cards não encolham no Flexbox */
+    align-items: flex-start; 
+}
+
+/* Esconde a barra de rolagem no Chrome/Safari */
+.grid-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    /* Impede que o card encolha e define a largura para caber no mobile */
+    flex-shrink: 0; 
+    width: 250px; 
+    height: 300px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-label {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--accent-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* 6. CONTEÚDO INFERIOR */
+/* ---------------------------------------------------------------------- */
+.bottom-content {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.bottom-content h2 {
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.play-button {
+    display: inline-block;
+    border: 2px solid var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.play-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------------------------------------------------------------------- */
+/* 7. MEDIA QUERIES (Para telas maiores que mobile) */
+/* ---------------------------------------------------------------------- */
+
+/* Telas maiores que 768px (Tablets e alguns Desktops) */
+@media (min-width: 768px) {
+    .page-title {
+        font-size: 4em;
+    }
+
+    /* Centraliza o carrossel em telas maiores */
+    .grid-carousel {
+        justify-content: center;
+        overflow-x: hidden; /* Não precisamos rolar horizontalmente se for desktop */
+        flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+        padding: 40px 20px;
+    }
+
+    .card {
+        width: 200px; /* Cards ligeiramente menores para caber mais */
+        height: 300px;
+    }
+}
+
+/* Telas entre 380px e 480px (Mobile pequeno) */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 2.5em;
+    }
+    .card {
+        width: 200px; /* Garante que o card é menor em telas muito pequenas */
+    }
+}
+
+/* Adicione esta regra no início do seu CSS, logo após a configuração base */
+.background-overlay {
+    /* Ocupa toda a tela */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Cor preta (0,0,0) com 40% de opacidade (0.4) */
+    /* Você pode ajustar o 0.4 para 0.5 ou 0.6 se precisar de mais escuridão */
+    background-color: rgba(0, 0, 0, 0.4); 
+    
+    /* ESSENCIAL: Garante que a camada escura fique *abaixo* do conteúdo */
+    z-index: -1; 
+}
+
+
+.spotify-button-wrapper {
+    display: flex; /* Coloca o ícone e o botão lado a lado */
+    align-items: center; /* Centraliza verticalmente o ícone e o botão */
+    justify-content: center; /* Centraliza o wrapper dentro de .buttons */
+    gap: 5px; /* Espaço entre o ícone e o botão */
+    width: fit-content; /* Faz o container envolver apenas o conteúdo (ícone + botão) */
+    margin: 0 auto; /* Centraliza o wrapper na tela */
+}
+
+.spotify-icon-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.spotify-icon-list .icon-content {
+    /* Define o tamanho do ícone */
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #1DB954; /* Cor verde do Spotify */
+    background: transparent;
+}
+
+.spotify-icon-list .icon-content svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 15px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+/* Base glassmorphism anchor */
+.icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.06)
+  );
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  transition: all 0.35s ease-in-out;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.45),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+    0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* Spotify glass border */
+.icon-content[data-social="spotify"] a {
+  border: 1px solid rgba(29, 185, 84, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(29, 185, 84, 0.4),
+    0 0 10px rgba(29, 185, 84, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
